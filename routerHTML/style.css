@@ -1,0 +1,29 @@
+body {
+                background-color: teal;
+                font-family: 'Montserrat', sans-serif;
+                color: #fff;
+                padding-top: 70px;
+}
+
+.menu-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+ul.main-menu {
+    list-style: none;
+}
+
+.main-menu li {
+    display: inline-block;
+    margin: 5px 10px;
+}
+
+.main-menu li a, a, a:hover, a:focus, a:active {
+    color: #fff;
+    text-decoration: none;
+}
+
+img.news-item__img {
+    width: 100%;
+}
