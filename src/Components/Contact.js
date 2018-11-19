@@ -29,7 +29,7 @@ class Contact extends Component {
 
     getDataTyped = () => {
         var DataTyped = "";
-        DataTyped = this.state.name +  this.state.email +  this.state.phone +  this.state.msg;
+        DataTyped = this.state.name + " " +  this.state.email + " " +  this.state.phone + " " +  this.state.msg + " " + this.state.subject;
         return DataTyped
     }
 
@@ -85,6 +85,20 @@ class Contact extends Component {
                                 name="msg"
                                 onChange={(event) => this.isChange(event)}
                             />
+                            <p className="help-block text-danger" />
+                            </div>
+                        </div>
+                        <div className="control-group">
+                            <div className="form-group floating-label-form-group controls mb-0 pb-2">
+                            <label>Select the subject</label>
+                            <select className="form-control" name="subject" id="subject"
+                                onChange={(event) => this.isChange(event)}
+                            >
+                                <option value="life">Life</option>
+                                <option value="programming">Programming</option>
+                                <option value="interview">Interview</option>
+                                <option value="photograph">Photograph</option>
+                            </select>
                             <p className="help-block text-danger" />
                             </div>
                         </div>
