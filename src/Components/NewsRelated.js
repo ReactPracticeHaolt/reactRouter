@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 class NewsRelated extends Component {
-    constructor(props) {
-        super(props);
-        
-    };
     
     to_slug = (str) => 
         {
@@ -42,7 +38,7 @@ class NewsRelated extends Component {
             <div className="col-md-4">
                 <NavLink to={"/news/" + this.to_slug(this.props.title) + "." +  this.props.id + ".html"}>
                     <div className="news-item">
-                    <img className="news-item__img" src={this.props.imgURL} alt="image" />
+                    <img className="news-item__img" src={this.props.imgURL} alt="c"/>
                     <h5 className="news-item__title">
                         {this.props.title}
                     </h5>

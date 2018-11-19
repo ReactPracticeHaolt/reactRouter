@@ -4,9 +4,6 @@ import data from './../data.json';
 
 
 class News extends Component {
-    constructor(props) {
-        super(props);
-    }
     
     render() {
         //console.log(data);

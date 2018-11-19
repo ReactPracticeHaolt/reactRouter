@@ -1,7 +1,44 @@
 import React, { Component } from 'react';
+import { Redirect } from "react-router-dom";
 
 class Contact extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            isRedirect: false
+        }
+    }
+    
+
+    submitForm  = (event) => {
+        event.preventDefault();
+        this.setState({
+            isRedirect: true
+        });
+    }
+
+    isChange = (event) => {
+        const name = event.target.name;
+        const value = event.target.value;
+        this.setState({
+            [name]: value
+        });
+        //console.log(this.state);
+        
+    }
+
+    getDataTyped = () => {
+        var DataTyped = "";
+        DataTyped = this.state.name +  this.state.email +  this.state.phone +  this.state.msg;
+        return DataTyped
+    }
+
     render() {
+
+        if (this.state.isRedirect){
+            console.log(this.getDataTyped());
+            return <Redirect to="/" />;
+        } 
         return (
             <section id="contact">
                 <div className="container">
@@ -14,35 +51,49 @@ class Contact extends Component {
                         <div className="control-group">
                             <div className="form-group floating-label-form-group controls mb-0 pb-2">
                             <label>Name</label>
-                            <input className="form-control" id="name" type="text" placeholder="Name" required="required" data-validation-required-message="Please enter your name." />
+                            <input className="form-control" id="name" type="text" placeholder="Name" required="required" data-validation-required-message="Please enter your name." 
+                                name="name"
+                                onChange={(event) => this.isChange(event)}
+                            />
                             <p className="help-block text-danger" />
                             </div>
                         </div>
                         <div className="control-group">
                             <div className="form-group floating-label-form-group controls mb-0 pb-2">
                             <label>Email Address</label>
-                            <input className="form-control" id="email" type="email" placeholder="Email Address" required="required" data-validation-required-message="Please enter your email address." />
+                            <input className="form-control" id="email" type="email" placeholder="Email Address" required="required" data-validation-required-message="Please enter your email address." 
+                                name="email"
+                                onChange={(event) => this.isChange(event)}
+                            />
                             <p className="help-block text-danger" />
                             </div>
                         </div>
                         <div className="control-group">
                             <div className="form-group floating-label-form-group controls mb-0 pb-2">
                             <label>Phone Number</label>
-                            <input className="form-control" id="phone" type="tel" placeholder="Phone Number" required="required" data-validation-required-message="Please enter your phone number." />
+                            <input className="form-control" id="phone" type="tel" placeholder="Phone Number" required="required" data-validation-required-message="Please enter your phone number." 
+                                name="phone"
+                                onChange={(event) => this.isChange(event)}
+                            />
                             <p className="help-block text-danger" />
                             </div>
                         </div>
                         <div className="control-group">
                             <div className="form-group floating-label-form-group controls mb-0 pb-2">
                             <label>Message</label>
-                            <textarea className="form-control" id="message" rows={5} placeholder="Message" required="required" data-validation-required-message="Please enter a message." defaultValue={""} />
+                            <textarea className="form-control" id="message" rows={5} placeholder="Message" required="required" data-validation-required-message="Please enter a message." defaultValue={""} 
+                                name="msg"
+                                onChange={(event) => this.isChange(event)}
+                            />
                             <p className="help-block text-danger" />
                             </div>
                         </div>
                         <br />
                         <div id="success" />
                         <div className="form-group">
-                            <button type="submit" className="btn btn-primary btn-xl" id="sendMessageButton">Send</button>
+                            <button type="submit" className="btn btn-primary btn-xl" id="sendMessageButton"
+                                onClick= {(event) => this.submitForm(event)}
+                            >Send</button>
                         </div>
                         </form>
                     </div>
